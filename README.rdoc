@@ -5,11 +5,11 @@
 * Rails version: 4.2.1
 
 * Database setup:
-  - rake db:create      # create schema
-  - rake db:migration   # create tables
-  - rake db:seed        # initial data
+  - <tt>rake db:create</tt>      # create schema
+  - <tt>rake db:migration</tt>   # create tables
+  - <tt>rake db:seed</tt>        # initial data
 
-* Schema based on:
+* Schema based on: http://schemaspy.sourceforge.net/sample/index.html
 
 * URLS:
   - GET /api/v1/books
@@ -22,7 +22,4 @@
 
 * TODO:
   - OAuth
-  - inprogress API
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  - add more APIs
