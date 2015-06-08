@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :books
-      resources :authors
-      resources :publishers do
+      concern :books do
         get :books
       end
+      resources :books
+      resources :authors
+      resources :publishers, concerns: :books
+      resources :library_branches, concerns: :books
     end
   end
 

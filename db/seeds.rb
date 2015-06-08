@@ -9,11 +9,13 @@
 # delete associations
 Book.all.each { |b| b.authors.clear }
 Author.all.each { |a| a.books.clear }
+BookLocation.delete_all
 # delete rows
 Book.delete_all
+LibraryBranch.delete_all
 Publisher.delete_all
-Address.delete_all
 Author.delete_all
+Address.delete_all
 
 Address.create id: 1, address: 'La Paloma', city: 'Cebu', state: 'Cebu', zip: '6000'
 Address.create id: 2, address: 'Naungan', city: 'Ormoc', state: 'Leyte', zip: '6001'
@@ -30,3 +32,13 @@ Publisher.create id: 3, name: 'Academia Publishing', phone: '561-6194', address_
 Book.create id: 1, isbn: '0062110918', title: "The Diver's Clothes Lie Empty", publisher_id: 1, authors: [Author.find(1)]
 Book.create id: 2, isbn: '1594633312', title: "Judy Blume", publisher_id: 2, authors: [Author.find(2), Author.find(3)]
 Book.create id: 3, isbn: '0385539584', title: "The Knockoff", publisher_id: 2, authors: [Author.find(2)]
+
+LibraryBranch.create id: 1, name: 'Stephen A. Schwarzman Building (Main Branch)', address_id: 2
+LibraryBranch.create id: 2, name: 'Schomburg Center for Research in Black Culture', address_id: 3
+LibraryBranch.create id: 3, name: 'Science, Industry and Business Library', address_id: 1
+
+BookLocation.create id: 1, book_id: 1, library_branch_id: 1, num_copies: 34533
+BookLocation.create id: 3, book_id: 2, library_branch_id: 2, num_copies: 956
+BookLocation.create id: 2, book_id: 1, library_branch_id: 3, num_copies: 109356
+BookLocation.create id: 4, book_id: 3, library_branch_id: 1, num_copies: 457
+BookLocation.create id: 5, book_id: 3, library_branch_id: 2, num_copies: 1385

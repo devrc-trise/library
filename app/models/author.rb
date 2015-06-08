@@ -3,6 +3,7 @@ class Author < ActiveRecord::Base
 
   def to_builder(i_books: true)
     Jbuilder.new do |json|
+      json.id id
       json.first_name first_name
       json.middle_name middle_name
       json.last_name last_name
