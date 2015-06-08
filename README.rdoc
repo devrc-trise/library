@@ -19,6 +19,9 @@
   - GET /api/v1/publishers
   - GET /api/v1/publishers/:id
   - GET /api/v1/publishers/:id/books
+  - GET /api/v1/library_branches
+  - GET /api/v1/library_branches/:id
+  - GET /api/v1/library_branches/:library_branch_id/books
 
 * TODO:
   - OAuth
