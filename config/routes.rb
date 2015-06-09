@@ -5,15 +5,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  namespace :api, defaults: {format: 'json'} do
+  namespace :api do
     namespace :v1 do
       concern :books do
         get :books
       end
-      resources :books
-      resources :authors
+      concern :borrowed_books do
+        get :borrowed_books
+      end
+
+      resources :books, concerns: :borrowed_books
+      resources :authors, concerns: :books
       resources :publishers, concerns: :books
-      resources :library_branches, concerns: :books
+      resources :library_branches, concerns: [:books, :borrowed_books]
+      resources :borrowers, concerns: :borrowed_books
     end
   end
 

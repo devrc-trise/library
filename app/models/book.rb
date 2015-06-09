@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
       json.isbn isbn
       json.title title
       json.publisher publisher.to_builder if i_publisher
-      json.authors authors.map { |author| author.to_builder(i_books: false).attributes! } if i_authors
+      json.authors authors.map { |author| author.to_builder.attributes! } if i_authors
     end
   end
 end
